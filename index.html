@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Digital Garden</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">VICTORIA ZHANG.</div>
+        <div class="tab-controls">
+            <button class="tab-btn active" onclick="openTab('work')">Work</button>
+            <button class="tab-btn" onclick="openTab('personal')">Lounge</button>
+        </div>
+        <a href="https://yourusername.substack.com" class="substack-link">Writing ↗</a>
+    </nav>
+
+    <header class="profile-header">
+        <div class="profile-container">
+            <img src="portrait.jpg" alt="Portrait" class="profile-image">
+            <div class="profile-text">
+                <h1>Hello, I'm Victoria.</h1>
+                <p>Learning with intent, living with curiosity.</p>
+
+                <p>I'm currently studying computer science and physics at the University of Illinois Urbana-Champaign. My current interests lie in anything from algorithmic theory to high-energy physics, but most recently, they lie primarily in <i>quantum computing</i> and <i>the development of transparent large language models.</i></p>
+
+                <p>Outside of coding in front of a computer all day, I enjoy creating and playing with new worlds--whether that be in a freshly-written story or through a new building project in a video game.</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="work" class="tab-content active">
+            <h2 class="section-title">Technical Ledger & Research</h2>
+    
+            div class="project-grid">
+                <div class="project-card">
+                    <span class="entry-date">October 2025</span>
+                    <h3>Entry 01: Simulwave (HackHarvard)</h3>
+                    <p>A real-time tsunami impact modeler visualizing citywide flooding and economic loss through calibrated multivariable damage models.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Streamlit</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="entry-date">Aug 2023 — Jan 2024</span>
+                    <h3>Entry 02: Hybrid Quantum-Classical Optimization</h3>
+                    <p>Utilized D-Wave quantum annealers for bin packing solutions, outperforming classical algorithms in scalability and precision.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Quantum Annealing</span> <span class="tag">Python</span> <span class="tag">D-Wave</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="entry-date">September 2025</span>
+                    <h3>Entry 03: Beat Rush (HackMIT)</h3>
+                    <p>An educational rhythm game that translates AI-generated music into gameplay, utilizing hardware controllers for tactile interaction.</p>
+                    <div class="tech-tags">
+                        <span class="tag">Node.js</span> <span class="tag">React.js</span> <span class="tag">Suno API</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <span class="entry-date">June 2023 — Sep 2024</span>
+                    <h3>Entry 04: DNA Methylation Aging Clock</h3>
+                    <p>Constructed an elastic-net regression clock ($R^{2}=0.953$) to assess UV-induced acceleration in skin aging and biological age.</p>
+                    <div class="tech-tags">
+                        <span class="tag">TensorFlow</span> <span class="tag">PyTorch</span> <span class="tag">Scipy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="personal" class="tab-content">
+            <h2 class="section-title">The Lounge</h2>
+            <div class="bento-container">
+                <div class="bento-item tall reading">
+                    <small>Reading</small>
+                    <ul class="bento-list">
+                        <li><i>Intermezzo</i>, Sally Rooney</li>
+                        <li><i>A Little Life</i>, Hanya Yanagihara</li>
+                    </ul>
+                </div>
+                <div class="bento-item wide gaming">
+                    <small>Gaming</small>
+                    <h3>Tiny Glade</h3>
+                    <p>Building a quiet farm on the coast.</p>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <script>
+        function openTab(tabName) {
+            // Hide all tab content
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Deactivate all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Show the specific tab and activate button
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
