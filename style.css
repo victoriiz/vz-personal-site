@@ -23,7 +23,7 @@
 :root {
     --bg: #fdfaf6;           /* Warm Paper White */
     --card: #ffffff;
-    --text-main: #3c3c3b;    /* Charcoal Gray */
+    --text-main: #06402B;    /* prev: charcoal gray at #3c3c3 */
     --text-muted: #7c7c7a;
     --accent: #8a9a5b;       /* Sage Green */
     --accent-light: #e9edde;
@@ -98,8 +98,8 @@ nav {
 /* applying uniform style to all content boxes */
 .project-card, .bento-item, .quote-box {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    background-color: var(--card) !important;
-    border: 1px solid var(--border) !important;
+    background-color: var(--card) !important; 
+    border: 1px solid var(--border) !important; 
     border-radius: var(--radius);
     padding: 30px;
     display: flex;
@@ -152,6 +152,31 @@ main { padding: 40px 10% 100px 10%; }
 .project-card h3 { font-size: 2rem; margin: 0.5rem 0; font-style: italic; }
 .entry-date { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: var(--text-muted); }
 
+/* updated font colors for Sage Green theme */
+.bento-item h3, 
+.bento-item p, 
+.bento-list li, 
+.quote,
+.project-card h3,
+.project-card p {
+    color: var(--text-main) !important; /* all main text now Sage Green */
+}
+
+/* ensure the quote box uses the uniform white background */
+.quote-box { 
+    background-color: var(--card) !important; 
+    justify-content: center; 
+}
+
+/* Update cite color */
+cite { 
+    font-size: 0.85rem; 
+    color: var(--text-muted); 
+    font-style: normal; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+}
+
 /* --- TECH TAGS --- */
 .tech-tags { display: flex; gap: 8px; margin-top: 1.5rem; }
 .tag {
@@ -189,7 +214,7 @@ main { padding: 40px 10% 100px 10%; }
 .bento-list li { font-family: 'EB Garamond', serif; font-size: 1.2rem; margin-bottom: 8px; }
 
 /* QUOTES */
-.quote-box { background: #fffcf9; justify-content: center; }
+.quote-box { background: #242426; justify-content: center; } /*prev: #fffcf9;*/
 .quote { font-family: 'EB Garamond', serif; font-size: 1.5rem; font-style: italic; margin-bottom: 10px; color: #4a4a48; }
 cite { font-size: 0.85rem; color: var(--text-muted); font-style: normal; text-transform: uppercase; letter-spacing: 1px; }
 
