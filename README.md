@@ -4,7 +4,8 @@ Current features:
 * Separate tabs for lounge (hobbies and interests, broadly), research, technical projects, and writing
 * Spotify embedding on a sample playlist
 * Profile
-* Night mode toggling
+* Some mini logos/icons here and there
+* Night mode toggling!
 
 To be implemented/fixed in the near future!
 * Filling in more detail and updating all projects, experience and writing
