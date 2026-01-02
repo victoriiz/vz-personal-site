@@ -17,6 +17,7 @@
             <button class="tab-btn" onclick="openTab('research')">Research</button>
             <button class="tab-btn" onclick="openTab('dev')">Development</button>
             <button class="tab-btn" onclick="openTab('writing')">Writing</button>
+            <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">🌙</button>
         </div>
         <a href="https://victoriiz.substack.com" target="_blank" class="substack-link">Substack ↗</a>
     </nav>
@@ -168,9 +169,34 @@
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
             
-            // Auto-scroll to top when switching tabs
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0); //autoscroll to top on tab switch
         }
+
+        // dark mode toggle!!
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggleBtn.textContent = '☀️'; 
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggleBtn.textContent = '🌙'; 
+            }
+        }
+
+        // Load saved theme preference
+        window.onload = function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-toggle').textContent = '☀️';
+            }
+        };
     </script>
+
+    
 </body>
 </html>

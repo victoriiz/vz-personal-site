@@ -1,23 +1,27 @@
-/* --- DARK MODE VARIABLES --- */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg: #1a1a1c;           /* Deep Charcoal */
-        --card: #242426;         /* Slightly lighter card */
-        --text-main: #e2e2e2;    /* Soft White */
-        --text-muted: #a0a0a5;   /* Gray */
-        --accent: #b19cd9;       /* Soft Lavender */
-        --accent-light: #2d2d30; /* Darker Sage/Gray */
-        --border: #38383a;       /* Subtle dark border */
-    }
-    
-    /* Slight adjustment for images in dark mode */
-    .profile-image, .bento-illustration {
-        filter: brightness(0.8) contrast(1.1);
-        border-color: var(--border) !important;
-    }
+/* --- DARK MODE THEME --- */
+body.dark-mode {
+    --bg: #1a1a1c;           /* Deep Charcoal */
+    --card: #242426;         /* Match Spotify Dark */
+    --text-main: #e2e2e2;    /* Soft White */
+    --text-muted: #a0a0a5;   /* Gray */
+    --accent: #b19cd9;       /* Soft Lavender */
+    --accent-light: #2d2d30; 
+    --border: #38383a;       
+}
 
-    nav { border-bottom: 1px solid var(--border); }
-    .project-card, .bento-item { border-color: var(--border) !important; }
+/* Specific styling for the toggle button */
+.theme-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0 10px;
+    color: var(--text-muted);
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+    color: var(--accent);
 }
 
 :root {
