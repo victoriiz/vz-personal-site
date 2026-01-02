@@ -1,8 +1,8 @@
 /* --- DARK MODE THEME --- */
 body.dark-mode {
     --bg: #1a1a1c;           /* Deep Charcoal */
-    --card: #242426;         /* Match Spotify Dark */
-    --text-main: #e2e2e2;    /* Soft White */
+    --card: #242426;         /* match Spotify Dark */
+    --text-main: #e2e2e2;    /* soft white */
     --text-muted: #a0a0a5;   /* Gray */
     --accent: #b19cd9;       /* Soft Lavender */
     --accent-light: #2d2d30; 
