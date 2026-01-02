@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Digital Garden</title>
+    <title>Victoria Zhang | Digital Ledger</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
@@ -12,103 +12,148 @@
     <nav>
         <div class="logo">VICTORIA ZHANG.</div>
         <div class="tab-controls">
-            <button class="tab-btn active" onclick="openTab('work')">Work</button>
-            <button class="tab-btn" onclick="openTab('personal')">Lounge</button>
+            <button class="tab-btn active" onclick="openTab('personal')">Lounge</button>
+            <button class="tab-btn" onclick="openTab('research')">Research</button>
+            <button class="tab-btn" onclick="openTab('dev')">Development</button>
+            <button class="tab-btn" onclick="openTab('writing')">Writing</button>
         </div>
-        <a href="https://yourusername.substack.com" class="substack-link">Writing ↗</a>
+        <a href="https://yourusername.substack.com" target="_blank" class="substack-link">Substack ↗</a>
     </nav>
 
-    <header class="profile-header">
-        <div class="profile-container">
-            <img src="portrait.jpg" alt="Portrait" class="profile-image">
-            <div class="profile-text">
-                <h1>Hello, I'm Victoria.</h1>
-                <p>Learning with intent, living with curiosity.</p>
-
-                <p>I'm currently studying computer science and physics at the University of Illinois Urbana-Champaign. My current interests lie in anything from algorithmic theory to high-energy physics, but most recently, they lie primarily in <i>quantum computing</i> and <i>the development of transparent large language models.</i></p>
-
-                <p>Outside of coding in front of a computer all day, I enjoy creating and playing with new worlds--whether that be in a freshly-written story or through a new building project in a video game.</p>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <section id="work" class="tab-content active">
-            <h2 class="section-title">Technical Ledger & Research</h2>
-    
-            div class="project-grid">
-                <div class="project-card">
-                    <span class="entry-date">October 2025</span>
-                    <h3>Entry 01: Simulwave (HackHarvard)</h3>
-                    <p>A real-time tsunami impact modeler visualizing citywide flooding and economic loss through calibrated multivariable damage models.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Streamlit</span>
+        <section id="personal" class="tab-content active">
+            <header class="profile-header">
+                <div class="profile-container">
+                    <img src="portrait.jpg" alt="Portrait" class="profile-image">
+                    <div class="profile-text">
+                        <h1>Hello, I'm Victoria. </h1>
+                        <p>I'm currently studying <b>Computer Science + Physics</b> at the <b>University of Illinois Urbana-Champaign</b>.  My current interests lie in anything from algorithmic theory to high-energy physics, but most recently, they lie primarily in <i>quantum computing</i> and <i>the development of transparent large language models.</i> </p>
+                        <p>Outside of coding, I enjoy creating new worlds—whether that be in a freshly-written story or through a building project in a video game. </p>
                     </div>
                 </div>
+            </header>
 
-                <div class="project-card">
-                    <span class="entry-date">Aug 2023 — Jan 2024</span>
-                    <h3>Entry 02: Hybrid Quantum-Classical Optimization</h3>
-                    <p>Utilized D-Wave quantum annealers for bin packing solutions, outperforming classical algorithms in scalability and precision.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Quantum Annealing</span> <span class="tag">Python</span> <span class="tag">D-Wave</span>
-                    </div>
+            <h2 class="section-title">The Lounge</h2>
+            <div class="bento-container">
+                <div class="bento-item tall reading">
+                    <small>Reading List</small>
+                    <ul class="bento-list">
+                        <li><i>Intermezzo</i>, Sally Rooney</li>
+                        <li><i>A Little Life</i>, Hanya Yanagihara</li>
+                        <li><i>The Guest Cat</i>, Takashi Hiraide</li>
+                    </ul>
                 </div>
 
-                <div class="project-card">
-                    <span class="entry-date">September 2025</span>
-                    <h3>Entry 03: Beat Rush (HackMIT)</h3>
-                    <p>An educational rhythm game that translates AI-generated music into gameplay, utilizing hardware controllers for tactile interaction.</p>
-                    <div class="tech-tags">
-                        <span class="tag">Node.js</span> <span class="tag">React.js</span> <span class="tag">Suno API</span>
-                    </div>
+                <div class="bento-item wide quote-box">
+                    <small>Fragment</small>
+                    <p class="quote">"The scientist does not study nature because it is useful; he studies it because he delights in it, and he delights in it because it is beautiful."</p>
+                    <cite>— Henri Poincaré</cite>
                 </div>
 
-                <div class="project-card">
-                    <span class="entry-date">June 2023 — Sep 2024</span>
-                    <h3>Entry 04: DNA Methylation Aging Clock</h3>
-                    <p>Constructed an elastic-net regression clock ($R^{2}=0.953$) to assess UV-induced acceleration in skin aging and biological age.</p>
-                    <div class="tech-tags">
-                        <span class="tag">TensorFlow</span> <span class="tag">PyTorch</span> <span class="tag">Scipy</span>
-                    </div>
+                <div class="bento-item gaming">
+                    <small>Gaming</small>
+                    <h3>Tiny Glade</h3>
+                    <p>Cozy building.</p>
+                </div>
+
+                <div class="bento-item wide quote-box alternate">
+                    <small>Fragment</small>
+                    <p class="quote">"Everything is a story. You are a story. I am a story."</p>
+                    <cite>— Frances Hodgson Burnett</cite>
                 </div>
             </div>
         </section>
 
-        <section id="personal" class="tab-content">
-            <h2 class="section-title">The Lounge</h2>
-            <div class="bento-container">
-                <div class="bento-item tall reading">
-                    <small>Reading</small>
-                    <ul class="bento-list">
-                        <li><i>Intermezzo</i>, Sally Rooney</li>
-                        <li><i>A Little Life</i>, Hanya Yanagihara</li>
-                    </ul>
+        <section id="research" class="tab-content">
+            <h2 class="section-title">Laboratory Journal: Research Entries</h2>
+            
+            <div class="project-card">
+                <span class="entry-date">Sep 2025 — Present </span>
+                <h3>Entry 01: Crowd Dynamics Lab </h3>
+                <p>Conducting research on fine-tuning and optimizing large language models for specialized fields at the Siebel School of Computing and Data Science.</p>
+                <div class="tech-tags">
+                    <span class="tag">LLMs </span> <span class="tag">Optimization </span> <span class="tag">Python </span>
                 </div>
-                <div class="bento-item wide gaming">
-                    <small>Gaming</small>
-                    <h3>Tiny Glade</h3>
-                    <p>Building a quiet farm on the coast.</p>
+            </div>
+
+            <div class="project-card">
+                <span class="entry-date">Sep 2024 — Jun 2025</span>
+                <h3>Entry 02: Quantum Many-Body Scars</h3>
+                <p>Analyzed entanglement entropy in the PXP model; utilized translation and reflection symmetries to enable exact diagonalization of the PXP Hamiltonian for $L=16$. </p>
+                <div class="tech-tags">
+                    <span class="tag">Quantum Physics</span> <span class="tag">PXP Model </span> <span class="tag">Mathematica </span>
                 </div>
+            </div>
+
+            <div class="project-card">
+                <span class="entry-date">Jun 2023 — Sep 2024</span>
+                <h3>Entry 03: DNA Methylation Aging Clock</h3>
+                <p>Constructed an elastic-net regression aging clock ($R^{2}=0.953$) to assess UV-induced acceleration in skin aging.</p>
+                <div class="tech-tags">
+                    <span class="tag">AI Research</span> <span class="tag">TensorFlow</span> <span class="tag">PyTorch</span>
                 </div>
+            </div>
+        </section>
+
+        <section id="dev" class="tab-content">
+            <h2 class="section-title">Engineering Logs: Technical Builds</h2>
+            
+            <div class="project-card">
+                <span class="entry-date">Oct 2025</span>
+                <h3>Simulwave (HackHarvard)</h3>
+                <p>An interactive 3D tsunami simulator visualizing real-time citywide flooding and estimating economic losses through a calibrated multivariable damage model. </p>
+                <div class="tech-tags">
+                    <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Streamlit</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="entry-date">Sep 2025 </span>
+                <h3>Beat Rush (HackMIT)</h3>
+                <p>A rhythm game converting user-generated music into tracks via Suno API, featuring a BBC micro:bit hardware controller.</p>
+                <div class="tech-tags">
+                    <span class="tag">Node.js </span> <span class="tag">React.js </span> <span class="tag">Suno API</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="writing" class="tab-content">
+            <h2 class="section-title">The Archive: Literary Works</h2>
+            
+            <div class="project-card">
+                <span class="entry-date">Feb 2025 </span>
+                <h3>Senior Writing Portfolio </h3>
+                <p>Silver Key award-winning collection of short stories, poetry, and flash fiction recognized in the top 8% of the DC Metro Region.</p>
+                <div class="tech-tags">
+                    <span class="tag">Short Story </span> <span class="tag">Poetry </span> <span class="tag">Flash Fiction </span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="entry-date">Apr 2024 </span>
+                <h3>Math Modeling: Addressing Homelessness</h3>
+                <p>M3 Challenge Runner Up; utilized logistic regression and VAR forecasting for budget optimization models presented at Jane Street. </p>
+                <div class="tech-tags">
+                    <span class="tag">VAR Forecasting </span> <span class="tag">Logistic Regression </span> <span class="tag">Math Modeling </span>
+                </div>
+            </div>
         </section>
     </main>
 
     <script>
         function openTab(tabName) {
-            // Hide all tab content
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => content.classList.remove('active'));
 
-            // Deactivate all buttons
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
 
-            // Show the specific tab and activate button
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
+            
+            // Auto-scroll to top when switching tabs
+            window.scrollTo(0, 0);
         }
     </script>
-
 </body>
 </html>
