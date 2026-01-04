@@ -1,5 +1,3 @@
-Live website can be accessed at: https://victoriiz.github.io/vz-personal-site/
-
 Current features and implementations:
 * Separate tabs for lounge (hobbies and interests, broadly), research, technical projects, and writing
 * Spotify embedding on a sample playlist
