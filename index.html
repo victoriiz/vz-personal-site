@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victoria Zhang | Digital Ledger</title>
     <link rel="icon" type="image/png" href="icon.png">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
 
     <nav>
@@ -29,12 +33,29 @@
                     <img src="portrait.jpg" alt="Portrait" class="profile-image">
                     <div class="profile-text">
                         <h1>Hello, I'm Victoria. </h1>
-                        <p>I'm currently studying <b>Computer Science + Physics</b> at the <b>University of Illinois Urbana-Champaign</b>.  My current interests lie in anything from algorithmic theory to high-energy physics, but most recently, they lie primarily in <i>quantum computing</i> and <i>the development of transparent large language models.</i> </p>
-                        <p>Outside of coding, I enjoy creating new worlds: whether that be in a freshly-written story or through a new building project in a video game. </p>
-                        <p> Thank you for stopping by my digital lounge! Feel free to rest here, or take a look around!</p>
+                        <p>I'm currently studying <b>Computer Science + Physics</b> at the <b>University of Illinois
+                                Urbana-Champaign</b>. My current interests lie in anything from algorithmic theory to
+                            high-energy physics, but most recently, they lie primarily in <i>quantum computing</i> and
+                            <i>the development of transparent large language models.</i>
+                        </p>
+                        <p>Outside of coding, I enjoy creating new worlds: whether that be in a freshly-written story or
+                            through a new building project in a video game. </p>
+                        <p> Thank you for stopping by my digital lounge! Feel free to rest here, or take a look around!
+                        </p>
                     </div>
                 </div>
             </header>
+
+            <h2 class="section-title">The Lounge</h2>
+            <div class="lounge-dynamic-area">
+                <div class="simulation-container">
+                    <div class="simulation-instructions">Move mouse to disturb the field / Click to agitate particles
+                    </div>
+                    <canvas id="physics-canvas"></canvas>
+                </div>
+            </div>
+
+            <!--
 
             <h2 class="section-title">The Lounge</h2>
             <div class="bento-container">
@@ -80,60 +101,81 @@
                     <p class="quote">"Everything is a story. You are a story. I am a story."</p>
                     <cite>— Frances Hodgson Burnett</cite>
                 </div>
-                -->
             </div>
+        -->
         </section>
 
         <section id="research" class="tab-content">
             <h2 class="section-title">Laboratory Journal: Research Entries</h2>
-            
+
             <div class="project-card">
                 <span class="entry-date">Sep 2025 — Present </span>
                 <h3>Entry 04: Large Language Models @ Crowd Dynamics Lab </h3>
-                <p>Currently conducting research on fine-tuning and optimizing large language models for specialized fields at the Siebel School of Computing and Data Science. Working with graduate student Agam Goyal under the mentorship of Professor Hari Sundaram. Stay tuned for updates! </p>
+                <p>Currently conducting research on fine-tuning and optimizing large language models for specialized
+                    fields at the Siebel School of Computing and Data Science. Working with graduate student Agam Goyal
+                    under the mentorship of Professor Hari Sundaram. Stay tuned for updates! </p>
                 <div class="tech-tags">
-                    <span class="tag">LLMs </span> <span class="tag">Optimization </span> <span class="tag">Python </span>
+                    <span class="tag">LLMs </span> <span class="tag">Optimization </span> <span class="tag">Python
+                    </span>
                 </div>
             </div>
 
             <div class="project-card">
                 <span class="entry-date">Sep 2024 — Jun 2025</span>
                 <h3>Entry 03: Quantum Many-Body Scars @ TJHSST Quantum Optics Lab/Virginia Tech</h3>
-                <p>Analyzed entanglement entropy in the PXP model; utilized numerical simulations and analytical methods to characterize ergodicity breaking and anomalous entanglement patterns in scarred Hamiltonians. Leveraged translation and reflection symmetries to optimize performance by more than double, scaling with system size. </p>
+                <p>Analyzed entanglement entropy in the PXP model; utilized numerical simulations and analytical methods
+                    to characterize ergodicity breaking and anomalous entanglement patterns in scarred Hamiltonians.
+                    Leveraged translation and reflection symmetries to optimize performance by more than double, scaling
+                    with system size. </p>
                 <div class="tech-tags">
-                    <span class="tag">Quantum Physics</span> <span class="tag">PXP Model </span> <span class="tag">Mathematica </span>
+                    <span class="tag">Quantum Physics</span> <span class="tag">PXP Model </span> <span
+                        class="tag">Mathematica </span>
                 </div>
             </div>
 
             <div class="project-card">
                 <span class="entry-date">Jun 2024 — Sep 2025</span>
-                <h3>Entry 02: Spatial Transcriptomics Machine Learning Analysis @ Levy Lab, Dartmouth Hitchcock Medical Center</h3>
-                <p>Created one of the first spatially-informed aging clocks using synthetic spatial transcriptomics data and a custom convolutional neural network (CNN). Combined gene expression with spatial data to model age acceleration (R² = 0.86). Performed cell clustering, marker gene analysis, and cell-type annotation to identify novel spatial patterns in skin aging. Showcased how spatial ML can reveal new insights in biology.</p>
+                <h3>Entry 02: Spatial Transcriptomics Machine Learning Analysis @ Levy Lab, Dartmouth Hitchcock Medical
+                    Center</h3>
+                <p>Created one of the first spatially-informed aging clocks using synthetic spatial transcriptomics data
+                    and a custom convolutional neural network (CNN). Combined gene expression with spatial data to model
+                    age acceleration (R² = 0.86). Performed cell clustering, marker gene analysis, and cell-type
+                    annotation to identify novel spatial patterns in skin aging. Showcased how spatial ML can reveal new
+                    insights in biology.</p>
                 <div class="tech-tags">
-                    <span class="tag">AI Research</span> <span class="tag">TensorFlow</span> <span class="tag">PyTorch</span>
+                    <span class="tag">AI Research</span> <span class="tag">TensorFlow</span> <span
+                        class="tag">PyTorch</span>
                 </div>
             </div>
 
             <div class="project-card">
                 <span class="entry-date">Jun 2023 — Sep 2024</span>
                 <h3>Entry 01: DNA Methylation Photoaging Clock @ Levy Lab, Dartmouth Hitchcock Medical Center</h3>
-                <p>Built a DNAm–based model to predict biological age and study UV-induced skin aging. Used elastic-net regression, feature selection, and 50-fold cross-validation to train an accurate aging clock (R² = 0.953). Explored links between age acceleration and solar damage using statistical tests.</p>
+                <p>Built a DNAm–based model to predict biological age and study UV-induced skin aging. Used elastic-net
+                    regression, feature selection, and 50-fold cross-validation to train an accurate aging clock (R² =
+                    0.953). Explored links between age acceleration and solar damage using statistical tests.</p>
                 <div class="tech-tags">
-                    <span class="tag">AI Research</span> <span class="tag">TensorFlow</span> <span class="tag">PyTorch</span>
+                    <span class="tag">AI Research</span> <span class="tag">TensorFlow</span> <span
+                        class="tag">PyTorch</span>
                 </div>
             </div>
         </section>
 
         <section id="dev" class="tab-content">
             <h2 class="section-title">Engineering Logs: Technical Builds</h2>
-            
+
             <div class="project-card">
                 <div class="project-header">
                     <span class="entry-date">May 2026</span>
-                    <a href="https://github.com/victoriiz/navier-stokes-pinn" target="_blank" class="project-github-link">GitHub ↗</a>
+                    <a href="https://github.com/victoriiz/navier-stokes-pinn" target="_blank"
+                        class="project-github-link">GitHub ↗</a>
                 </div>
                 <h3>NS-PINN: Navier-Stokes Physics-Informed Neural Network</h3>
-                <p>Built a Physics-Informed Neural Network (PINN) in PyTorch to solve the 2D incompressible Navier-Stokes equations for lid-driven cavity flow. The network learns fluid velocity and pressure fields by minimising PDE residuals computed via automatic differentiation — no simulation data required. Implemented SIREN (sinusoidal activation) architecture for stable higher-order derivative computation through the network.</p>
+                <p>Built a Physics-Informed Neural Network (PINN) in PyTorch to solve the 2D incompressible
+                    Navier-Stokes equations for lid-driven cavity flow. The network learns fluid velocity and pressure
+                    fields by minimising PDE residuals computed via automatic differentiation — no simulation data
+                    required. Implemented SIREN (sinusoidal activation) architecture for stable higher-order derivative
+                    computation through the network.</p>
                 <div class="tech-tags">
                     <span class="tag">Python</span> <span class="tag">PyTorch</span> <span class="tag">PDEs</span>
                 </div>
@@ -142,10 +184,12 @@
             <div class="project-card">
                 <div class="project-header">
                     <span class="entry-date">Oct 2025</span>
-                    <a href="https://github.com/victoriiz/hackharvard-25" target="_blank" class="project-github-link">GitHub ↗</a>
+                    <a href="https://github.com/victoriiz/hackharvard-25" target="_blank"
+                        class="project-github-link">GitHub ↗</a>
                 </div>
                 <h3>Simulwave (HackHarvard): Interactive 3D Tsunami Simulator</h3>
-                <p>An interactive 3D tsunami simulator visualizing real-time citywide flooding and estimating economic losses through a calibrated multivariable damage model. </p>
+                <p>An interactive 3D tsunami simulator visualizing real-time citywide flooding and estimating economic
+                    losses through a calibrated multivariable damage model. </p>
                 <div class="tech-tags">
                     <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Streamlit</span>
                 </div>
@@ -154,33 +198,44 @@
             <div class="project-card">
                 <div class="project-header">
                     <span class="entry-date"> Sep 2025</span>
-                    <a href="https://github.com/victoriiz/hackmit_music" target="_blank" class="project-github-link">GitHub ↗</a>
+                    <a href="https://github.com/victoriiz/hackmit_music" target="_blank"
+                        class="project-github-link">GitHub ↗</a>
                 </div>
                 <h3>Beat Rush (HackMIT): Educational Rhythm Game</h3>
-                <p>A rhythm game converting user-generated music into tracks via Suno API, featuring a BBC micro:bit hardware controller.</p>
+                <p>A rhythm game converting user-generated music into tracks via Suno API, featuring a BBC micro:bit
+                    hardware controller.</p>
                 <div class="tech-tags">
-                    <span class="tag">Node.js </span> <span class="tag">React.js </span> <span class="tag">Suno API</span>
+                    <span class="tag">Node.js </span> <span class="tag">React.js </span> <span class="tag">Suno
+                        API</span>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="project-header">
                     <span class="entry-date">Jan 2025</span>
-                    <a href="https://github.com/victoriiz/q2-adapative-branching" target="_blank" class="project-github-link">GitHub ↗</a>
+                    <a href="https://github.com/victoriiz/q2-adapative-branching" target="_blank"
+                        class="project-github-link">GitHub ↗</a>
                 </div>
                 <h3>Adaptive Branching: A Constraint Satisfaction Approach to Decision Tree Enhancement</h3>
-                <p>Final project completed as part of a machine learning class. Investigates a novel constrained optimization approach to optimizing decision trees against overfitting, testing the additional search metaheuristics of simulated annealing and differential equation gradients on improving the model.</p>
+                <p>Final project completed as part of a machine learning class. Investigates a novel constrained
+                    optimization approach to optimizing decision trees against overfitting, testing the additional
+                    search metaheuristics of simulated annealing and differential equation gradients on improving the
+                    model.</p>
                 <div class="tech-tags">
-                    <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Machine Learning</span>
+                    <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Machine
+                        Learning</span>
                 </div>
             </div>
 
             <div class="project-card">
                 <span class="entry-date">Apr 2024 </span>
                 <h3>Mathworks Math Modeling (M3) Challenge: Addressing Homelessness</h3>
-                <p>M3 Challenge Runner Up (top 0.3% out of 650+ entries); utilized logistic regression and VAR forecasting for budget optimization models addressing the homelessness and housing crisis in Seattle and Alberqueque; presented in front of a panel of professional mathematicians at Jane Street. </p>
+                <p>M3 Challenge Runner Up (top 0.3% out of 650+ entries); utilized logistic regression and VAR
+                    forecasting for budget optimization models addressing the homelessness and housing crisis in Seattle
+                    and Alberqueque; presented in front of a panel of professional mathematicians at Jane Street. </p>
                 <div class="tech-tags">
-                    <span class="tag">VAR Forecasting </span> <span class="tag">Logistic Regression </span> <span class="tag">Math Modeling </span>
+                    <span class="tag">VAR Forecasting </span> <span class="tag">Logistic Regression </span> <span
+                        class="tag">Math Modeling </span>
                 </div>
             </div>
         </section>
@@ -199,68 +254,111 @@
         </section>
         -->
         <section id="writing" class="tab-content">
-    <h2 class="section-title">Reading Ledger</h2>
+            <h2 class="section-title">Reading Ledger</h2>
 
-    <div class="bento-thought-grid">
+            <div class="bento-thought-grid">
 
-        <div class="thought-card bento-wide note-dashed">
-            <div class="thought-header">
-                <span class="entry-date">Feb 2026</span>
-                <span class="book-rating">★★★★★</span>
+                <div class="thought-card bento-wide note-dashed">
+                    <div class="thought-header">
+                        <span class="entry-date">Feb 2026</span>
+                        <span class="book-rating">★★★★★</span>
+                    </div>
+                    <h3>One Day, Everyone Will Have Always Been Against This — Omar El Akkad</h3>
+
+                    <div class="thought-content">
+                        <img src="icon.png" class="thought-inline-img" alt="Visual Fragment">
+
+                        <p class="review-paragraph">i hesitated to rate this book—to even go on reading past a certain
+                            point—because of how little connection I felt. yes, I could nod in agreement, let a few
+                            tears escape out of sympathy, bring a hand up to my face in horror, but I couldn't get rid
+                            of the awful sense of superficiality it all felt to me. it is discomfort, to read so
+                            plainly, and in so much unfettered detail the reality that is so completely far from the
+                            coziness of my life. It is this discomfort that Akkad lays so clearly. it is this ignorance,
+                            when, spread as a blanket over the Western sphere and more, becomes permission for the worst
+                            of humanity.</p>
+
+                        <p class="review-paragraph">still, you have to keep reading. and by the end, you too may have
+                            that pessimistic, pragmatic hope that one day this reality would at the very least be
+                            condemned by everyone, that there is no greed or pointing of fingers. until then, we keep
+                            wringing our hands and hold fast to these individual courages.</p>
+
+                        <blockquote class="review-quote">"There's always room on a liberal's lawn."</blockquote>
+                    </div>
+                </div>
+
+                <div class="thought-card bento-tall note-solid">
+                    <div class="thought-header">
+                        <span class="entry-date">March 2026</span>
+                        <span class="book-rating">★★★★☆</span>
+                    </div>
+                    <h3>Cold Enough for Snow — Jessica Au</h3>
+
+                    <div class="thought-content">
+                        <p class="review-paragraph">wow. for such a short novel, it sure did take me a long time to
+                            finish. or really, it was because I read it in bits and pieces, reading on bus rides, during
+                            passing periods between classes, or on weekend mornings when I felt too lazy to get out of
+                            bed. I think I am glad for this. this is not a book meant to be rushed through in a sitting.
+                            it is meant to seep and trickle and slowly ooze.</p>
+
+                        <p class="review-paragraph">the novel carried a quiet warmth that exuded in everything. and
+                            there was a constant distance, too, in the tokyo rains or the passing memories or in the
+                            vagueness of the unnamed daughter and mother's relationship to the very end. though
+                            seemingly formatted as a documentation of the pair's travels, at times we are transported
+                            into the daughter's recollections and emotions or the rushing flow of a nostalgic anecdote.
+                        </p>
+
+                        <p class="review-paragraph">though none of these are fully described dramatically, we cannot
+                            help but feel its twinge regardless. descriptions are offered instead to the simple things:
+                            objects, art, a lake, and so many more. in this way, this story too is normalcy wrapped in a
+                            blanket and presented to the reader, asking, here. take this. this is my passing gift to
+                            you, and oh, won't you come inside and stay awhile?</p>
+
+                        <p class="review-paragraph">there is a mystery that remains after the last page. but it'll just
+                            be that. here is a quiet, unassuming yet introspective tale that has passed through my life
+                            at this moment in time. it'll just be that.</p>
+                    </div>
+                </div>
+
+                <div class="thought-card bento-wide note-thick">
+                    <div class="thought-header">
+                        <span class="entry-date">Dec 2025</span>
+                        <span class="book-rating">★★★★★</span>
+                    </div>
+                    <h3>I Who Have Never Known Men — Jacqueline Harpman</h3>
+
+                    <div class="thought-content">
+                        <img src="icon.png" class="thought-inline-img" alt="Visual Fragment">
+
+                        <p class="review-paragraph"><span class="spoiler-tag">**spoiler alert**</span> it is without a
+                            doubt due to the curious, almost detached storytelling of the narrator that this book read
+                            so peacefully, even when describing tragedy. However, oblivious as the narrator may have
+                            been in the first half of the book, she did not lack sympathy—and it was endlessly
+                            interesting to me to watch her journey tying these knots of her understanding together,
+                            untying them again, and untangling them once more in her relentless search to learn to the
+                            very end.</p>
+
+                        <p class="review-paragraph">on the other hand, it was this interest alone that drove me to
+                            continue turning the page. just as the plains were unchanging, there was rarely any
+                            excitement or thrill in the story. Still, I waited in anticipation to see if there would be
+                            that moment where the narrator Figures It Out, meets an ally, or simply escapes (but where
+                            to?).</p>
+
+                        <p class="review-paragraph">as it turns out, she never truly does Figure It Out. She never does
+                            meet a man, much less another human being. And perhaps at the end, she really did find her
+                            own escape, but as the premise of the whole setting goes, she had simply traded her prison
+                            for a luxurious one. This plot, as a whole, is not fascinating in itself. It's not one that
+                            I expect to think about endlessly.</p>
+
+                        <p class="review-paragraph">But I will think about it sometime, maybe, some boring day in the
+                            future when I am contemplating loneliness, or even taking this idea of living—of people—for
+                            granted. As the narrator hoped in her last days, her story did reach someone. Her story,
+                            which was so laced with quiet despair, yet unwavering hope—these feelings at least, will not
+                            leave.</p>
+                    </div>
+                </div>
+
             </div>
-            <h3>One Day, Everyone Will Have Always Been Against This — Omar El Akkad</h3>
-    
-            <div class="thought-content">
-                <img src="icon.png" class="thought-inline-img" alt="Visual Fragment">
-        
-                <p class="review-paragraph">i hesitated to rate this book—to even go on reading past a certain point—because of how little connection I felt. yes, I could nod in agreement, let a few tears escape out of sympathy, bring a hand up to my face in horror, but I couldn't get rid of the awful sense of superficiality it all felt to me. it is discomfort, to read so plainly, and in so much unfettered detail the reality that is so completely far from the coziness of my life. It is this discomfort that Akkad lays so clearly. it is this ignorance, when, spread as a blanket over the Western sphere and more, becomes permission for the worst of humanity.</p>
-        
-                <p class="review-paragraph">still, you have to keep reading. and by the end, you too may have that pessimistic, pragmatic hope that one day this reality would at the very least be condemned by everyone, that there is no greed or pointing of fingers. until then, we keep wringing our hands and hold fast to these individual courages.</p>
-
-                <blockquote class="review-quote">"There's always room on a liberal's lawn."</blockquote>
-            </div>
-        </div>
-
-        <div class="thought-card bento-tall note-solid">
-            <div class="thought-header">
-                <span class="entry-date">March 2026</span>
-                <span class="book-rating">★★★★☆</span>
-            </div>
-            <h3>Cold Enough for Snow — Jessica Au</h3>
-    
-            <div class="thought-content">
-                <p class="review-paragraph">wow. for such a short novel, it sure did take me a long time to finish. or really, it was because I read it in bits and pieces, reading on bus rides, during passing periods between classes, or on weekend mornings when I felt too lazy to get out of bed. I think I am glad for this. this is not a book meant to be rushed through in a sitting. it is meant to seep and trickle and slowly ooze.</p>
-        
-                <p class="review-paragraph">the novel carried a quiet warmth that exuded in everything. and there was a constant distance, too, in the tokyo rains or the passing memories or in the vagueness of the unnamed daughter and mother's relationship to the very end. though seemingly formatted as a documentation of the pair's travels, at times we are transported into the daughter's recollections and emotions or the rushing flow of a nostalgic anecdote.</p>
-                
-                <p class="review-paragraph">though none of these are fully described dramatically, we cannot help but feel its twinge regardless. descriptions are offered instead to the simple things: objects, art, a lake, and so many more. in this way, this story too is normalcy wrapped in a blanket and presented to the reader, asking, here. take this. this is my passing gift to you, and oh, won't you come inside and stay awhile?</p>
-
-                <p class="review-paragraph">there is a mystery that remains after the last page. but it'll just be that. here is a quiet, unassuming yet introspective tale that has passed through my life at this moment in time. it'll just be that.</p>
-            </div>
-        </div>
-
-        <div class="thought-card bento-wide note-thick">
-            <div class="thought-header">
-                <span class="entry-date">Dec 2025</span>
-                <span class="book-rating">★★★★★</span>
-            </div>
-            <h3>I Who Have Never Known Men — Jacqueline Harpman</h3>
-    
-            <div class="thought-content">
-                <img src="icon.png" class="thought-inline-img" alt="Visual Fragment">
-        
-                <p class="review-paragraph"><span class="spoiler-tag">**spoiler alert**</span> it is without a doubt due to the curious, almost detached storytelling of the narrator that this book read so peacefully, even when describing tragedy. However, oblivious as the narrator may have been in the first half of the book, she did not lack sympathy—and it was endlessly interesting to me to watch her journey tying these knots of her understanding together, untying them again, and untangling them once more in her relentless search to learn to the very end.</p>
-        
-                <p class="review-paragraph">on the other hand, it was this interest alone that drove me to continue turning the page. just as the plains were unchanging, there was rarely any excitement or thrill in the story. Still, I waited in anticipation to see if there would be that moment where the narrator Figures It Out, meets an ally, or simply escapes (but where to?).</p>
-
-                <p class="review-paragraph">as it turns out, she never truly does Figure It Out. She never does meet a man, much less another human being. And perhaps at the end, she really did find her own escape, but as the premise of the whole setting goes, she had simply traded her prison for a luxurious one. This plot, as a whole, is not fascinating in itself. It's not one that I expect to think about endlessly.</p>
-
-                <p class="review-paragraph">But I will think about it sometime, maybe, some boring day in the future when I am contemplating loneliness, or even taking this idea of living—of people—for granted. As the narrator hoped in her last days, her story did reach someone. Her story, which was so laced with quiet despair, yet unwavering hope—these feelings at least, will not leave.</p>
-            </div>
-        </div>
-
-    </div>
-</section>
+        </section>
 
     </main>
 
@@ -274,7 +372,7 @@
 
             document.getElementById(tabName).classList.add('active');
             event.currentTarget.classList.add('active');
-            
+
             window.scrollTo(0, 0); //autoscroll to top on tab switch
         }
 
@@ -286,23 +384,145 @@
 
             if (body.classList.contains('dark-mode')) {
                 localStorage.setItem('theme', 'dark');
-                themeToggleBtn.textContent = '☀️'; 
+                themeToggleBtn.textContent = '☀️';
             } else {
                 localStorage.setItem('theme', 'light');
-                themeToggleBtn.textContent = '🌙'; 
+                themeToggleBtn.textContent = '🌙';
             }
         }
 
         // remember saved theme preference
-        window.onload = function() {
+        window.onload = function () {
             const savedTheme = localStorage.getItem('theme');
             if (savedTheme === 'dark') {
                 document.body.classList.add('dark-mode');
                 document.getElementById('theme-toggle').textContent = '☀️';
             }
         };
+
+        // --- INTERACTIVE PHYSICS ENGINE ---
+        const canvas = document.getElementById('physics-canvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray = [];
+
+        const mouse = {
+            x: null,
+            y: null,
+            radius: 120 // Interaction boundary radius
+        };
+
+        // Listeners to track mouse movement relative to canvas bounding box
+        canvas.addEventListener('mousemove', (event) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = event.clientX - rect.left;
+            mouse.y = event.clientY - rect.top;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        // Click event to wildly agitate particle states
+        canvas.addEventListener('click', () => {
+            particlesArray.forEach(p => {
+                p.vx += (Math.random() - 0.5) * 12;
+                p.vy += (Math.random() - 0.5) * 12;
+            });
+        });
+
+        // Dynamic canvas resize mapping
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+            initSimulation();
+        }
+        window.addEventListener('resize', resizeCanvas);
+
+        // Particle Blueprint
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.size = Math.random() * 2.5 + 1;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = (Math.random() - 0.5) * 1.5;
+                this.density = (Math.random() * 30) + 12;
+            }
+
+            draw(color) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = color;
+                ctx.fill();
+            }
+
+            update() {
+                // Linear movement tracking
+                this.x += this.vx;
+                this.y += this.vy;
+
+                // Wall collisions / elastic bounce calculations
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+
+                // Mouse interaction logic (Vector force fields)
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.hypot(dx, dy);
+
+                if (distance < mouse.radius) {
+                    let forceDirectionX = dx / distance;
+                    let forceDirectionY = dy / distance;
+                    // The closer the mouse, the harder it pushes or pulls
+                    let force = (mouse.radius - distance) / mouse.radius;
+                    let directionX = forceDirectionX * force * this.density * 0.4;
+                    let directionY = forceDirectionY * force * this.density * 0.4;
+
+                    // Simple vector subtraction to warp positions away from mouse pointer
+                    this.x -= directionX;
+                    this.y -= directionY;
+                }
+            }
+        }
+
+        function initSimulation() {
+            particlesArray = [];
+            // Number of active particles based on structural screen width
+            let numberOfParticles = (canvas.width * canvas.height) / 4500;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let x = Math.random() * canvas.width;
+                let y = Math.random() * canvas.height;
+                particlesArray.push(new Particle(x, y));
+            }
+        }
+
+        function animateSimulation() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Dynamically query current compiled theme variable colors
+            const activeAccentColor = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
+
+            particlesArray.forEach(particle => {
+                particle.update();
+                particle.draw(activeAccentColor);
+            });
+
+            requestAnimationFrame(animateSimulation);
+        }
+
+        // Intercept window onload chain to trigger simulation initialization
+        const systemOnload = window.onload;
+        window.onload = () => {
+            if (systemOnload) systemOnload();
+            resizeCanvas();
+            animateSimulation();
+        };
     </script>
 
-    
+
 </body>
+
 </html>
