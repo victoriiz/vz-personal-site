@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Victoria Zhang | Digital Ledger</title>
     <link rel="icon" type="image/png" href="icon.png">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="stylee.css">
     <link
         href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
@@ -27,11 +27,11 @@
     </nav>
 
     <main>
-        <!-- LOUNGE: canvas is ambient background for the whole section -->
         <section id="personal" class="tab-content active">
-            <canvas id="physics-canvas"></canvas>
-
-            <div class="lounge-content">
+            
+            <div class="profile-hero-frame">
+                <canvas id="physics-canvas"></canvas>
+                
                 <header class="profile-header">
                     <div class="profile-container">
                         <img src="portrait.jpg" alt="Portrait" class="profile-image">
@@ -44,13 +44,13 @@
                             </p>
                             <p>Outside of coding, I enjoy creating new worlds: whether that be in a freshly-written story or
                                 through a new building project in a video game. </p>
-                            <p>Thank you for stopping by my digital lounge! Feel free to rest here, or take a look around!</p>
+                            <p class="sign-off">Thank you for stopping by my digital lounge! Feel free to rest here, or take a look around!</p>
                         </div>
                     </div>
                 </header>
-
-                <p class="canvas-hint">Move your cursor to disturb the field · Click to agitate</p>
             </div>
+            
+            <h2 class="section-title">Lounge</h2>
         </section>
 
         <section id="research" class="tab-content">
@@ -304,7 +304,7 @@
 
             window.scrollTo(0, 0);
 
-            // Re-size canvas if switching back to lounge
+            // Re-size canvas context when rendering active lounge container
             if (tabName === 'personal') {
                 resizeCanvas();
             }
@@ -334,45 +334,48 @@
             animateSimulation();
         };
 
-        // --- AMBIENT PHYSICS ENGINE ---
+        // --- AMBIENT PHYSICS ENGINE (STRICTLY FRAME BOUND) ---
         const canvas = document.getElementById('physics-canvas');
         const ctx = canvas.getContext('2d');
         let particlesArray = [];
-        const CONNECTION_DISTANCE = 100;
+        const CONNECTION_DISTANCE = 110;
 
         const mouse = {
             x: null,
             y: null,
-            radius: 130
+            radius: 140
         };
 
-        // Track mouse relative to the section, not the canvas
-        const section = document.getElementById('personal');
+        // Track user interaction inside the bounding box profile frame
+        const frame = document.querySelector('.profile-hero-frame');
 
-        section.addEventListener('mousemove', (event) => {
+        frame.addEventListener('mousemove', (event) => {
             const rect = canvas.getBoundingClientRect();
             mouse.x = event.clientX - rect.left;
             mouse.y = event.clientY - rect.top;
         });
 
-        section.addEventListener('mouseleave', () => {
+        frame.addEventListener('mouseleave', () => {
             mouse.x = null;
             mouse.y = null;
         });
 
-        section.addEventListener('click', () => {
+        frame.addEventListener('click', () => {
             particlesArray.forEach(p => {
-                p.vx += (Math.random() - 0.5) * 14;
-                p.vy += (Math.random() - 0.5) * 14;
+                p.vx += (Math.random() - 0.5) * 16;
+                p.vy += (Math.random() - 0.5) * 16;
             });
         });
 
         function resizeCanvas() {
-            const s = document.getElementById('personal');
-            canvas.width = s.offsetWidth;
-            canvas.height = s.offsetHeight;
-            initSimulation();
+            const parentFrame = document.querySelector('.profile-hero-frame');
+            if(parentFrame) {
+                canvas.width = parentFrame.offsetWidth;
+                canvas.height = parentFrame.offsetHeight;
+                initSimulation();
+            }
         }
+        
         window.addEventListener('resize', () => {
             if (document.getElementById('personal').classList.contains('active')) {
                 resizeCanvas();
@@ -384,9 +387,9 @@
                 this.x = x;
                 this.y = y;
                 this.size = Math.random() * 2 + 0.8;
-                this.vx = (Math.random() - 0.5) * 0.8;
-                this.vy = (Math.random() - 0.5) * 0.8;
-                this.density = (Math.random() * 25) + 10;
+                this.vx = (Math.random() - 0.5) * 0.9;
+                this.vy = (Math.random() - 0.5) * 0.9;
+                this.density = (Math.random() * 25) + 12;
             }
 
             draw(color) {
@@ -400,15 +403,12 @@
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Soft boundary bounce
                 if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
                 if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
 
-                // Apply gentle friction so agitated particles calm down
-                this.vx *= 0.995;
-                this.vy *= 0.995;
+                this.vx *= 0.993;
+                this.vy *= 0.993;
 
-                // Mouse repulsion
                 if (mouse.x !== null) {
                     let dx = mouse.x - this.x;
                     let dy = mouse.y - this.y;
@@ -416,8 +416,8 @@
 
                     if (distance < mouse.radius && distance > 0) {
                         let force = (mouse.radius - distance) / mouse.radius;
-                        this.x -= (dx / distance) * force * this.density * 0.35;
-                        this.y -= (dy / distance) * force * this.density * 0.35;
+                        this.x -= (dx / distance) * force * this.density * 0.38;
+                        this.y -= (dy / distance) * force * this.density * 0.38;
                     }
                 }
             }
@@ -425,8 +425,7 @@
 
         function initSimulation() {
             particlesArray = [];
-            // Lower density so it reads as ambient, not busy
-            let numberOfParticles = Math.floor((canvas.width * canvas.height) / 7000);
+            let numberOfParticles = Math.floor((canvas.width * canvas.height) / 6500);
             for (let i = 0; i < numberOfParticles; i++) {
                 particlesArray.push(new Particle(
                     Math.random() * canvas.width,
@@ -443,7 +442,7 @@
                     const dist = Math.hypot(dx, dy);
 
                     if (dist < CONNECTION_DISTANCE) {
-                        const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.18;
+                        const opacity = (1 - dist / CONNECTION_DISTANCE) * 0.22;
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
                         ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
@@ -461,12 +460,11 @@
             const style = getComputedStyle(document.documentElement);
             const accentHex = style.getPropertyValue('--accent').trim();
 
-            // Convert hex accent to rgb for rgba lines
             const r = parseInt(accentHex.slice(1, 3), 16);
             const g = parseInt(accentHex.slice(3, 5), 16);
             const b = parseInt(accentHex.slice(5, 7), 16);
             const accentRgb = `rgb(${r}, ${g}, ${b})`;
-            const particleColor = `rgba(${r}, ${g}, ${b}, 0.55)`;
+            const particleColor = `rgba(${r}, ${g}, ${b}, 0.6)`;
 
             drawConnections(accentRgb);
 
