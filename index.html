@@ -128,11 +128,14 @@
             <h2 class="section-title">Engineering Logs: Technical Builds</h2>
             
             <div class="project-card">
-                <span class="entry-date">May 2026</span>
+                <div class="project-header">
+                    <span class="entry-date">May 2026</span>
+                    <a href="https://github.com/yourusername/simulwave" target="_blank" class="project-github-link">GitHub ↗</a>
+                </div>
                 <h3>NS-PINN: Navier-Stokes Physics-Informed Neural Network</h3>
                 <p>Built a Physics-Informed Neural Network (PINN) in PyTorch to solve the 2D incompressible Navier-Stokes equations for lid-driven cavity flow. The network learns fluid velocity and pressure fields by minimising PDE residuals computed via automatic differentiation — no simulation data required. Implemented SIREN (sinusoidal activation) architecture for stable higher-order derivative computation through the network.</p>
                 <div class="tech-tags">
-                    <span class="tag">Python</span> <span class="tag">NumPy</span> <span class="tag">Streamlit</span>
+                    <span class="tag">Python</span> <span class="tag">PyTorch</span> <span class="tag">PDEs</span>
                 </div>
             </div>
 
