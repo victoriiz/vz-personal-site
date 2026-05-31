@@ -270,3 +270,20 @@ cite { font-size: 0.85rem; color: var(--text-muted); font-style: normal; text-tr
 body.dark-mode .project-preview-img {
     filter: brightness(0.85);
 }
+
+/* --- LITERARY LEDGER EXTENSIONS --- */
+.book-rating {
+    color: var(--accent); 
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+}
+
+.review-quote {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
