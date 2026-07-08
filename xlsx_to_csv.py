@@ -42,7 +42,7 @@ def row_to_book(r: dict) -> dict:
     return {
         "title": str(r.get("title") or "").strip(),
         "author": str(r.get("author") or "").strip(),
-        "link": str(r.get("goodreads_link") or "").strip() or "https://www.goodreads.com/",
+        "link": str(r.get("goodreads_link") or "").strip(),  # empty = rendered unlinked
         "cover": cover,
         "rating": int(r.get("rating") or 0),
         "read_at": norm_date(r.get("date_read")),

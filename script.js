@@ -424,11 +424,12 @@ function animate() {
 /* ------------------------------------------------------------------ */
 
 /* --- Filter chips (year chips generated from the cards on the page) --- */
-(function initLedgerFilters() {
+function rebuildYearChips() {
     const grid = document.querySelector('.bento-thought-grid');
     const bar = document.getElementById('ledger-filters');
     if (!grid || !bar) return;
 
+    bar.querySelectorAll('.chip-year').forEach(c => c.remove());
     const years = [...new Set(
         [...grid.querySelectorAll('.thought-card')]
             .map(c => c.dataset.year)
@@ -437,11 +438,19 @@ function animate() {
 
     years.forEach(y => {
         const b = document.createElement('button');
-        b.className = 'filter-chip';
+        b.className = 'filter-chip chip-year';
         b.dataset.filter = 'year:' + y;
         b.textContent = y;
         bar.appendChild(b);
     });
+}
+
+(function initLedgerFilters() {
+    const grid = document.querySelector('.bento-thought-grid');
+    const bar = document.getElementById('ledger-filters');
+    if (!grid || !bar) return;
+
+    rebuildYearChips();
 
     bar.addEventListener('click', (e) => {
         const chip = e.target.closest('.filter-chip');
@@ -459,13 +468,15 @@ function animate() {
     });
 })();
 
-/* --- Fold long reviews closed with a "keep reading" toggle --- */
-let ledgerCollapseDone = false;
+/* --- Fold long reviews closed with a "keep reading" toggle ---
+   Re-runnable: safe to call again after cards are added dynamically.
+   Only measures while the ledger tab is visible (hidden = zero heights). --- */
 function initLedgerCollapse() {
-    if (ledgerCollapseDone) return;
-    ledgerCollapseDone = true;
+    if (!document.getElementById('writing').classList.contains('active')) return;
 
     document.querySelectorAll('#writing .thought-content').forEach(tc => {
+        if (tc.dataset.collapseChecked) return;
+        tc.dataset.collapseChecked = '1';
         if (tc.scrollHeight <= 480) return;
         tc.classList.add('collapsed');
         const btn = document.createElement('button');
@@ -499,11 +510,17 @@ async function loadGoodreads() {
     if (shelf && row && current.length) {
         row.innerHTML = '';
         current.forEach(b => {
-            const a = document.createElement('a');
+            // only render an actual link when the row has one
+            let a;
+            if (b.link) {
+                a = document.createElement('a');
+                a.href = b.link;
+                a.target = '_blank';
+                a.rel = 'noopener';
+            } else {
+                a = document.createElement('div');
+            }
             a.className = 'gr-book';
-            a.href = b.link;
-            a.target = '_blank';
-            a.rel = 'noopener';
             if (b.cover) {
                 const img = document.createElement('img');
                 img.src = b.cover;
@@ -543,36 +560,45 @@ async function loadGoodreads() {
         }
     }
 
-    // "logged, not yet reviewed": read books without a full review card here
+    // split read books: reviewed -> full cards; reviewless -> compact log
+    const grid = document.querySelector('.bento-thought-grid');
+    const reviewedOnPage = [...document.querySelectorAll('.thought-card h3')]
+        .map(h => h.textContent.toLowerCase());
+    const isOnPage = (b) => {
+        const key = b.title.toLowerCase().split(/[(:]/)[0].trim();
+        return key && reviewedOnPage.some(r => r.includes(key));
+    };
+
+    const withReview = read.filter(b => !isOnPage(b) && (b.review || '').trim());
+    const noReview = read.filter(b => !isOnPage(b) && !(b.review || '').trim());
+
+    // full review cards, woven into the existing bento grid
+    if (grid && withReview.length) {
+        withReview.forEach((b, i) => grid.appendChild(buildReviewCard(b, i)));
+        rebuildYearChips();
+        initLedgerCollapse(); // no-op unless the ledger tab is currently visible
+    }
+
+    // "logged, not yet reviewed": only books with an empty review column
     const log = document.getElementById('gr-log');
     const rows = document.getElementById('gr-log-rows');
-    if (log && rows && read.length) {
-        const reviewed = [...document.querySelectorAll('.thought-card h3')]
-            .map(h => h.textContent.toLowerCase());
-        const items = read.filter(b => {
-            const key = b.title.toLowerCase().split(/[(:]/)[0].trim();
-            return key && !reviewed.some(r => r.includes(key));
-        });
-
+    if (log && rows && noReview.length) {
         rows.innerHTML = '';
-        items.slice(0, 40).forEach(b => {
+        noReview.slice(0, 40).forEach(b => {
             const div = document.createElement('div');
             div.className = 'gr-log-row';
 
             const date = document.createElement('span');
             date.className = 'gr-log-date';
-            if (b.read_at) {
-                const d = new Date(b.read_at);
-                if (!isNaN(d)) {
-                    date.textContent = d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
-                }
-            }
+            date.textContent = monthYear(b.read_at);
 
-            const title = document.createElement('a');
+            const title = document.createElement(b.link ? 'a' : 'span');
             title.className = 'gr-log-title';
-            title.href = b.link;
-            title.target = '_blank';
-            title.rel = 'noopener';
+            if (b.link) {
+                title.href = b.link;
+                title.target = '_blank';
+                title.rel = 'noopener';
+            }
             title.textContent = b.title;
 
             const author = document.createElement('span');
@@ -586,12 +612,74 @@ async function loadGoodreads() {
             div.append(date, title, author, stars);
             rows.appendChild(div);
         });
-
-        if (items.length) log.hidden = false;
+        log.hidden = false;
     }
 }
 
+/* --- helpers for spreadsheet-sourced review cards --- */
+
+function monthYear(iso) {
+    if (!iso) return '';
+    const d = new Date(iso);
+    return isNaN(d) ? '' : d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
+}
+
+// size/border variety so generated cards sit naturally in the bento grid
+const CARD_CYCLE = [
+    ['bento-wide', 'note-dashed'],
+    ['note-solid'],
+    ['bento-wide', 'note-thick'],
+    ['note-dashed'],
+    ['bento-tall', 'note-solid'],
+    ['note-thick']
+];
+
+function buildReviewCard(b, i) {
+    const card = document.createElement('div');
+    card.className = 'thought-card ' + CARD_CYCLE[i % CARD_CYCLE.length].join(' ');
+    if (b.rating) card.dataset.rating = String(b.rating);
+    if (b.read_at) card.dataset.year = b.read_at.slice(0, 4);
+
+    const header = document.createElement('div');
+    header.className = 'thought-header';
+    const date = document.createElement('span');
+    date.className = 'entry-date';
+    date.textContent = monthYear(b.read_at);
+    const stars = document.createElement('span');
+    stars.className = 'book-rating';
+    stars.textContent = b.rating ? '★'.repeat(b.rating) + '☆'.repeat(5 - b.rating) : '';
+    header.append(date, stars);
+
+    const h3 = document.createElement('h3');
+    h3.textContent = b.author ? `${b.title} — ${b.author}` : b.title;
+
+    const content = document.createElement('div');
+    content.className = 'thought-content';
+
+    let text = (b.review || '').trim();
+    const spoilerRe = /^\*{1,2}\s*spoiler alert\s*\*{0,2}\s*/i;
+    if (spoilerRe.test(text)) {
+        text = text.replace(spoilerRe, '');
+        const note = document.createElement('p');
+        note.className = 'spoiler-note';
+        note.textContent = '** spoiler alert **';
+        content.appendChild(note);
+    }
+
+    text.split(/\n\s*\n/).forEach((para, idx) => {
+        if (!para.trim()) return;
+        const p = document.createElement('p');
+        p.className = 'review-paragraph' + (idx === 0 ? ' has-dropcap' : '');
+        p.textContent = para.trim();
+        content.appendChild(p);
+    });
+
+    card.append(header, h3, content);
+    return card;
+}
+
 /* ----------------------------- BOOT ------------------------------- */
+/* script is loaded with `defer`, so the DOM is already parsed here   */
 
 if (localStorage.getItem('theme') === 'dark') {
     document.body.classList.add('dark-mode');
