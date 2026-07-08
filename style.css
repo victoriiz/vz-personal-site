@@ -1,13 +1,19 @@
+/* ==========================================================================
+   1. COLOR PALETTES & GLOBAL DESIGN VARIABLES
+   ========================================================================== */
+
+/* Dark Mode Theme — Triggers when body has .dark-mode class
+   (charcoal + lavender, per the site owner's preference) */
 body.dark-mode {
     --bg: #1a1a1c;           /* Deep Charcoal */
     --card: #242426;         /* Match Spotify Dark */
     --text-main: #e2e2e2;    /* Soft White */
     --text-muted: #a0a0a5;   /* Gray */
     --accent: #b19cd9;       /* Soft Lavender */
-    --accent-light: #2d2d30; 
-    --border: #38383a;       
+    --accent-light: #2d2d30;
+    --border: #38383a;
 }
- 
+
 /* Light Mode Baseline Theme Defaults — "Day Desk" */
 :root {
     --bg: #fdfaf6;           /* Warm Paper White */
@@ -19,7 +25,7 @@ body.dark-mode {
     --border: #eee5d8;
     --radius: 12px;
 }
- 
+
 /* ==========================================================================
    2. GLOBAL SETUP & TYPOGRAPHY
    ========================================================================== */
@@ -31,12 +37,12 @@ body {
     line-height: 1.7;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
- 
+
 h1, h2, h3 {
     font-family: 'EB Garamond', serif;
     font-weight: 500;
 }
- 
+
 /* Paper grain — a whisper of tooth over the whole page */
 body::after {
     content: "";
@@ -47,11 +53,11 @@ body::after {
     opacity: 0.04;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
- 
+
 body.dark-mode::after {
     opacity: 0.055;
 }
- 
+
 /* ==========================================================================
    3. NAVIGATION HEADER & TABS
    ========================================================================== */
@@ -67,13 +73,13 @@ nav {
     z-index: 1000;
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
- 
+
 .logo {
     font-family: 'EB Garamond', serif;
     font-weight: 600;
     letter-spacing: 1px;
 }
- 
+
 .tab-controls {
     display: flex;
     gap: 5px;
@@ -82,7 +88,7 @@ nav {
     border-radius: 30px;
     transition: background-color 0.4s ease;
 }
- 
+
 .tab-btn {
     border: none;
     background: none;
@@ -96,13 +102,13 @@ nav {
     color: var(--text-muted);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
- 
+
 .tab-btn.active {
     background: var(--card);
     color: var(--accent);
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
- 
+
 .theme-btn {
     border: none;
     background: none;
@@ -112,11 +118,11 @@ nav {
     color: var(--text-muted);
     transition: color 0.4s ease;
 }
- 
+
 .theme-btn:hover {
     color: var(--accent);
 }
- 
+
 .substack-link {
     text-decoration: none;
     color: var(--accent);
@@ -125,28 +131,28 @@ nav {
     font-weight: 500;
     transition: color 0.3s ease;
 }
- 
+
 /* ==========================================================================
    4. CONTENT LAYOUT, SECTIONS & TIMELINE CARDS
    ========================================================================== */
 main {
     padding: 40px 10% 100px 10%;
 }
- 
+
 .tab-content {
     display: none;
     animation: fadeIn 0.6s ease;
 }
- 
+
 .tab-content.active {
     display: block;
 }
- 
+
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(8px); }
     to { opacity: 1; transform: translateY(0); }
 }
- 
+
 .section-title {
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -154,7 +160,7 @@ main {
     margin-bottom: 40px;
     color: var(--accent);
 }
- 
+
 /* Uniform structural styles for content containers */
 .project-card, .bento-item, .quote-box {
     box-shadow: 0 4px 12px rgba(6, 64, 43, 0.03);
@@ -171,25 +177,25 @@ main {
                 background-color 0.4s ease;
     box-sizing: border-box;
 }
- 
+
 /* Smooth spring micro-interactions */
 .project-card:hover, .bento-item:hover {
     transform: translateY(-5px) scale(1.005);
     box-shadow: 0 12px 24px rgba(6, 64, 43, 0.06);
     border-color: var(--accent) !important;
 }
- 
+
 .project-card {
     margin-bottom: 24px;
     position: relative; /* anchor for marginalia entry numbers */
 }
- 
+
 .project-card h3 {
     font-size: 2rem;
     margin: 0.5rem 0;
     font-style: italic;
 }
- 
+
 /* Entry dates as ink stamps */
 .entry-date {
     font-family: 'Inter', sans-serif;
@@ -204,11 +210,11 @@ main {
     align-self: flex-start;
     transition: border-color 0.4s ease;
 }
- 
+
 .thought-header .entry-date {
     align-self: auto;
 }
- 
+
 /* Marginalia: entry/log numbers written in the notebook's gutter.
    Inline label on normal screens, true margin note on wide ones. */
 .entry-num {
@@ -220,7 +226,7 @@ main {
     color: var(--accent);
     margin-bottom: 8px;
 }
- 
+
 @media (min-width: 1280px) {
     .entry-num {
         position: absolute;
@@ -233,7 +239,7 @@ main {
         font-size: 1rem;
     }
 }
- 
+
 /* Color overrides mapping to global text-main settings */
 .bento-item h3,
 .bento-item p,
@@ -243,12 +249,12 @@ main {
 .project-card p {
     color: var(--text-main) !important;
 }
- 
+
 .quote-box {
     background-color: var(--card) !important;
     justify-content: center;
 }
- 
+
 cite {
     font-size: 0.85rem;
     color: var(--text-muted);
@@ -256,14 +262,14 @@ cite {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
- 
+
 /* Technical Skill Tags Layout */
 .tech-tags {
     display: flex;
     gap: 8px;
     margin-top: 1.5rem;
 }
- 
+
 .tag {
     background: var(--accent-light);
     color: var(--accent);
@@ -273,7 +279,7 @@ cite {
     font-weight: 500;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
- 
+
 /* ==========================================================================
    5. LOUNGE TAB: HERO FRAME, DUAL PORTRAITS & SIM SWITCHER
    ========================================================================== */
@@ -288,7 +294,7 @@ cite {
     margin-bottom: 50px;
     transition: background-color 0.4s ease, border-color 0.4s ease;
 }
- 
+
 #physics-canvas {
     position: absolute;
     top: 0;
@@ -300,7 +306,7 @@ cite {
     mask-image: radial-gradient(circle at center, white 50%, transparent 100%);
     -webkit-mask-image: radial-gradient(circle at center, white 50%, transparent 100%);
 }
- 
+
 .profile-header {
     position: relative;
     z-index: 2;
@@ -308,13 +314,13 @@ cite {
     margin: 0;
     border-bottom: none;
 }
- 
+
 .profile-container {
     display: flex;
     align-items: center;
     gap: 50px;
 }
- 
+
 /* Ambient simulation switcher — a small instrument dial in the frame corner */
 .sim-switcher {
     position: absolute;
@@ -330,11 +336,11 @@ cite {
     opacity: 0.35;
     transition: opacity 0.3s ease, background-color 0.4s ease, border-color 0.4s ease;
 }
- 
+
 .profile-hero-frame:hover .sim-switcher {
     opacity: 1;
 }
- 
+
 .sim-btn {
     border: none;
     background: none;
@@ -346,26 +352,26 @@ cite {
     color: var(--text-muted);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
- 
+
 .sim-btn.active {
     background: var(--card);
     color: var(--accent);
     box-shadow: 0 1px 3px rgba(0,0,0,0.06);
 }
- 
+
 /* Alternate Profile Image Visibility Engine Setup */
 .dark-profile-img {
     display: none !important;
 }
- 
+
 body.dark-mode .light-profile-img {
     display: none !important;
 }
- 
+
 body.dark-mode .dark-profile-img {
     display: block !important;
 }
- 
+
 .profile-image {
     width: 155px;
     height: 155px;
@@ -375,22 +381,22 @@ body.dark-mode .dark-profile-img {
     border: 2px solid var(--border, #eee5d8);
     transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.4s ease, border-color 0.4s ease;
 }
- 
+
 .profile-hero-frame:hover .profile-image {
     transform: scale(1.03) rotate(1deg);
 }
- 
+
 body.dark-mode .profile-image {
     filter: brightness(0.85) grayscale(8%);
     border-color: var(--border);
 }
- 
+
 .profile-text h1 {
     font-size: 3rem;
     margin: 0 0 1rem 0;
     letter-spacing: -0.5px;
 }
- 
+
 .profile-text p {
     font-family: 'EB Garamond', serif;
     font-size: 1.25rem;
@@ -399,14 +405,14 @@ body.dark-mode .profile-image {
     color: var(--text-main);
     margin-bottom: 12px;
 }
- 
+
 .profile-text .sign-off {
     font-size: 1.15rem;
     color: var(--text-muted);
     font-style: italic;
     margin-bottom: 0;
 }
- 
+
 /* Lounge "currently" cells */
 .lounge-label {
     font-family: 'Inter', sans-serif;
@@ -415,18 +421,18 @@ body.dark-mode .profile-image {
     letter-spacing: 1.6px;
     color: var(--accent);
 }
- 
+
 .lounge-grid .bento-item h3 {
     font-size: 1.5rem;
     font-style: italic;
     margin: 10px 0 8px 0;
 }
- 
+
 .lounge-grid .bento-item p {
     font-size: 0.95rem;
     margin: 0;
 }
- 
+
 /* --- AMBIENT SIMULATION SCREEN CONFIG --- */
 .simulation-container {
     position: relative;
@@ -436,14 +442,14 @@ body.dark-mode .profile-image {
     overflow: hidden;
     background: transparent;
 }
- 
+
 #physics-canvas-fallback {
     width: 100%;
     height: 100%;
     display: block;
     background-color: transparent;
 }
- 
+
 .simulation-instructions {
     position: absolute;
     top: 20px;
@@ -457,11 +463,11 @@ body.dark-mode .profile-image {
     opacity: 0.5;
     transition: opacity 0.3s ease;
 }
- 
+
 .simulation-container:hover .simulation-instructions {
     opacity: 0.9;
 }
- 
+
 /* ==========================================================================
    6. DEVELOPMENT LOG PREVIEW SCREENSHOT ENGINE
    ========================================================================== */
@@ -472,7 +478,7 @@ body.dark-mode .profile-image {
     width: 100%;
     margin-bottom: 10px;
 }
- 
+
 .project-github-link {
     font-size: 0.85rem;
     color: var(--accent);
@@ -480,12 +486,12 @@ body.dark-mode .profile-image {
     font-weight: 500;
     transition: opacity 0.2s ease, color 0.2s ease;
 }
- 
+
 .project-github-link:hover {
     text-decoration: underline;
     opacity: 0.8;
 }
- 
+
 .project-preview-img {
     width: 100%;
     height: 200px;
@@ -496,15 +502,15 @@ body.dark-mode .profile-image {
     display: block;
     transition: transform 0.4s ease, filter 0.4s ease;
 }
- 
+
 .project-card:hover .project-preview-img {
     transform: scale(1.01);
 }
- 
+
 body.dark-mode .project-preview-img {
     filter: brightness(0.85);
 }
- 
+
 /* ==========================================================================
    7. READING LEDGER CRITIQUE BENTO BOX MASONRY GRID
    ========================================================================== */
@@ -517,7 +523,7 @@ body.dark-mode .project-preview-img {
     margin-top: 20px;
     align-items: start;
 }
- 
+
 .thought-card {
     background-color: var(--card) !important;
     padding: 30px;
@@ -533,15 +539,15 @@ body.dark-mode .project-preview-img {
                 border-color 0.4s ease,
                 background-color 0.4s ease;
 }
- 
+
 .bento-wide { grid-column: span 2; }
 .bento-tall { grid-row: span 2; }
- 
+
 .bento-image-only {
     padding: 0 !important;
     overflow: hidden;
 }
- 
+
 .bento-full-img {
     width: 100%;
     height: 100%;
@@ -549,21 +555,21 @@ body.dark-mode .project-preview-img {
     display: block;
     transition: transform 0.6s ease;
 }
- 
+
 .thought-card:hover .bento-full-img {
     transform: scale(1.03);
 }
- 
+
 .note-dashed { border: 1px dashed var(--accent) !important; }
 .note-solid  { border: 1px solid var(--border) !important; }
 .note-thick  { border: 1px solid var(--border) !important; border-left: 4px solid var(--accent) !important; }
- 
+
 .thought-card:hover {
     transform: translateY(-5px) scale(1.005);
     box-shadow: 0 12px 24px rgba(6, 64, 43, 0.05);
     border-color: var(--accent) !important;
 }
- 
+
 .thought-header {
     display: flex;
     justify-content: space-between;
@@ -571,7 +577,7 @@ body.dark-mode .project-preview-img {
     width: 100%;
     font-size: 0.8rem;
 }
- 
+
 .thought-card h3 {
     font-family: 'EB Garamond', serif;
     font-size: 1.5rem;
@@ -579,11 +585,11 @@ body.dark-mode .project-preview-img {
     color: var(--accent) !important;
     margin: 15px 0;
 }
- 
+
 .thought-content {
     width: 100%;
 }
- 
+
 .review-paragraph {
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
@@ -592,11 +598,11 @@ body.dark-mode .project-preview-img {
     margin-top: 0;
     margin-bottom: 16px;
 }
- 
+
 .review-paragraph:last-child {
     margin-bottom: 0;
 }
- 
+
 /* Illuminated drop caps — apply .has-dropcap to the opening paragraph of a review */
 .has-dropcap::first-letter {
     font-family: 'EB Garamond', serif;
@@ -606,7 +612,7 @@ body.dark-mode .project-preview-img {
     padding: 4px 8px 0 0;
     color: var(--accent);
 }
- 
+
 .thought-inline-img {
     width: 100%;
     max-height: 160px;
@@ -616,7 +622,7 @@ body.dark-mode .project-preview-img {
     margin-bottom: 15px;
     display: block;
 }
- 
+
 .spoiler-tag,
 .spoiler-note {
     color: var(--accent);
@@ -625,12 +631,12 @@ body.dark-mode .project-preview-img {
     font-size: 0.75rem;
     letter-spacing: 0.5px;
 }
- 
+
 .spoiler-note {
     font-family: 'Inter', sans-serif;
     margin: 0 0 12px 0;
 }
- 
+
 .review-quote {
     font-family: 'EB Garamond', serif;
     font-size: 1.35rem;
@@ -640,16 +646,16 @@ body.dark-mode .project-preview-img {
     margin: 20px 0;
     color: var(--text-main);
 }
- 
+
 .book-rating {
     color: var(--accent);
     font-size: 0.9rem;
     letter-spacing: 2px;
 }
- 
+
 body.dark-mode .thought-card { background-color: var(--card) !important; }
 body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
- 
+
 /* Static Bento Legacy Layout Remnants mapping */
 .bento-container {
     display: grid;
@@ -659,7 +665,7 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     width: 100%;
     align-items: start;
 }
- 
+
 .bento-illustration {
     width: 100%;
     height: auto;
@@ -668,14 +674,14 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     margin-bottom: 15px;
     display: block;
 }
- 
+
 .wide { grid-column: span 2; }
 .tall { grid-row: span 2; }
- 
+
 .bento-list { list-style: none; padding: 0; margin-top: 15px; }
 .bento-list li { font-family: 'EB Garamond', serif; font-size: 1.2rem; margin-bottom: 8px; }
 .quote { font-family: 'EB Garamond', serif; font-size: 1.5rem; font-style: italic; margin-bottom: 10px; color: #4a4a48; }
- 
+
 /* ==========================================================================
    8. COLOPHON FOOTER
    ========================================================================== */
@@ -685,7 +691,7 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     border-top: 1px solid var(--border, #eee5d8);
     transition: border-color 0.4s ease;
 }
- 
+
 .colophon-line {
     font-family: 'EB Garamond', serif;
     font-style: italic;
@@ -693,14 +699,14 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     color: var(--text-muted);
     margin: 0;
 }
- 
+
 .colophon-name {
     font-family: 'EB Garamond', serif;
     font-size: 1.6rem;
     letter-spacing: 1px;
     margin: 4px 0 16px 0;
 }
- 
+
 .colophon-links a {
     color: var(--accent);
     text-decoration: none;
@@ -708,15 +714,15 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     margin: 0 8px;
     transition: color 0.3s ease;
 }
- 
+
 .colophon-links a:hover {
     text-decoration: underline;
 }
- 
+
 .colophon-sep {
     color: var(--text-muted);
 }
- 
+
 .colophon-note {
     font-size: 0.7rem;
     color: var(--text-muted);
@@ -724,15 +730,206 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     letter-spacing: 1.5px;
     margin-top: 20px;
 }
- 
+
 /* ==========================================================================
-   9. MEDIA QUERIES & RESPONSIVE SCALING OVERRIDES
+   9. SIMULATION FIGURE CAPTIONS
+   ========================================================================== */
+.sim-caption {
+    position: absolute;
+    bottom: 16px;
+    left: 20px;
+    z-index: 3;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.68rem;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity 1.4s ease;
+    pointer-events: none;
+    max-width: 60%;
+}
+
+.sim-caption.show {
+    opacity: 0.5;
+}
+
+.profile-hero-frame:hover .sim-caption.show {
+    opacity: 0.85;
+}
+
+/* ==========================================================================
+   10. READING LEDGER: FILTERS, COLLAPSIBLE REVIEWS & GOODREADS SHELF
+   ========================================================================== */
+.ledger-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: -25px 0 30px 0;
+}
+
+.filter-chip {
+    border: 1px solid var(--border, #eee5d8);
+    background: none;
+    padding: 5px 14px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.filter-chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.filter-chip.active {
+    background: var(--accent-light);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* Long reviews fold closed with a fading edge; a toggle unfolds them */
+.thought-content.collapsed {
+    max-height: 380px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 72%, transparent 100%);
+}
+
+.read-more-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: var(--accent);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 8px 0 0 0;
+    align-self: flex-start;
+}
+
+.read-more-btn:hover {
+    text-decoration: underline;
+}
+
+/* Currently-reading shelf strip (from books.json) */
+.gr-shelf {
+    margin: -10px 0 40px 0;
+}
+
+.gr-shelf-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 14px;
+}
+
+.gr-book {
+    width: 92px;
+    text-decoration: none;
+    color: var(--text-main);
+    font-family: 'EB Garamond', serif;
+    font-size: 0.85rem;
+    line-height: 1.3;
+}
+
+.gr-book img {
+    width: 92px;
+    height: 138px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid var(--border, #eee5d8);
+    display: block;
+    margin-bottom: 6px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+    transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.gr-book:hover img {
+    transform: translateY(-3px);
+}
+
+body.dark-mode .gr-book img {
+    filter: brightness(0.88);
+}
+
+/* Cover-less books get a lettered "spine" instead of a broken image */
+.gr-book-spine {
+    width: 92px;
+    height: 138px;
+    box-sizing: border-box;
+    padding: 10px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--border, #eee5d8);
+    border-left: 4px solid var(--accent);
+    background: var(--accent-light);
+    color: var(--text-main);
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 0.8rem;
+    line-height: 1.35;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 6px;
+}
+
+/* "Logged, not yet reviewed" — compact ledger rows */
+.gr-log {
+    margin-top: 60px;
+}
+
+.gr-log-row {
+    display: grid;
+    grid-template-columns: 90px 1fr auto auto;
+    gap: 14px;
+    align-items: baseline;
+    padding: 10px 4px;
+    border-bottom: 1px dashed var(--border, #eee5d8);
+}
+
+.gr-log-date {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+}
+
+.gr-log-title {
+    font-family: 'EB Garamond', serif;
+    font-size: 1.05rem;
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.gr-log-title:hover {
+    color: var(--accent);
+}
+
+.gr-log-author {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.gr-log-stars {
+    color: var(--accent);
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+/* ==========================================================================
+   11. MEDIA QUERIES & RESPONSIVE SCALING OVERRIDES
    ========================================================================== */
 @media (max-width: 1024px) {
     .bento-thought-grid { grid-template-columns: repeat(2, 1fr); }
     .bento-container { grid-template-columns: repeat(2, 1fr); }
 }
- 
+
 @media (max-width: 768px) {
     .profile-container { flex-direction: column; align-items: center; text-align: center; gap: 25px; }
     .profile-header { padding: 30px 20px; }
@@ -743,5 +940,8 @@ body.dark-mode .note-thick { border-left-color: var(--accent) !important; }
     .bento-image-only { height: 200px; }
     .profile-text h1 { font-size: 2.5rem; }
     .sim-switcher { opacity: 0.8; }
+    .sim-caption { display: none; }
+    .gr-log-row { grid-template-columns: 1fr auto; }
+    .gr-log-date, .gr-log-author { display: none; }
 }
  

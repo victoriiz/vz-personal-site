@@ -56,34 +56,39 @@
                     <button class="sim-btn" data-sim="flow" title="cavity flow — streamlines from my Navier-Stokes PINN">≋</button>
                     <button class="sim-btn" data-sim="scars" title="quantum scars — Z₂ revivals in the PXP chain (click to measure!)">⚛</button>
                 </div>
+
+                <!-- Figure caption: quietly labels whichever simulation is running -->
+                <div class="sim-caption" id="sim-caption" aria-live="polite"></div>
             </div>
 
             <h2 class="section-title">Marginalia: Currently</h2>
 
             <div class="bento-container lounge-grid">
 
-                <!-- TODO: swap in whatever you're actually reading right now -->
+                <!-- Auto-fills from books.json (Goodreads sync) ONLY if the text
+                     starts with "[" — your own words always stay untouched -->
                 <div class="bento-item note-dashed">
                     <span class="lounge-label">currently reading</span>
-                    <h3>[pale fire, vladimir nabokov]</h3>
-                    <p>[a recommendation that i picked up in a chicago book store and have been waiting to read since.]</p>
+                    <h3 id="cr-title">pale fire, vladimir nabokov</h3>
+                    <p id="cr-note">a recommendation that i picked up in a chicago book store and have been
+                        waiting to read since.</p>
                 </div>
 
                 <div class="bento-item note-thick">
-                    <span class="lounge-label">currently building</span>
-                    <h3>NS-PINN</h3>
-                    <p>teaching a neural network to respect the Navier-Stokes equations. the flow animation
-                        behind my portrait is its distant, decorative cousin — press ≋ to meet it.</p>
+                    <span class="lounge-label">currently researching</span>
+                    <h3>variational quantum importance sampling</h3>
+                    <p>exploring quantum algorithms for rare event simulation in GPU load balancing problems. so much more that i'm excited about this that i can't fit here--stay tuned!</p>
                 </div>
 
-                <!-- TODO: rotate this whenever the obsession rotates -->
+                <!-- rotate this whenever the obsession rotates -->
                 <div class="bento-item note-solid">
                     <span class="lounge-label">current obsession</span>
-                    <h3>[obsession]</h3>
-                    <p>["cigarette smoke" from olivia rodrigo's most recent album. it brings a sense of melancholy and catharsis that i'm still unsure how to name.]</p>
+                    <h3>"cigarette smoke" — olivia rodrigo</h3>
+                    <p>from her most recent album. it brings a sense of melancholy and catharsis that
+                        i'm still unsure how to name.</p>
                 </div>
 
-                <!-- TODO: replace placeholder text; add screenshots of builds or a story fragment.
+                <!-- worldbuilding desk: uncomment when there's an artifact to show.
                      For images: <img src="..." class="bento-illustration" alt="..."> -->
                 <!-- <div class="bento-item wide note-dashed">
                     <span class="lounge-label">from the worldbuilding desk</span>
@@ -97,7 +102,7 @@
         <!-- ============================ RESEARCH ============================ -->
         <section id="research" class="tab-content">
             <h2 class="section-title">Laboratory Journal: Research Entries</h2>
-            
+
             <div class="project-card">
                 <span class="entry-num">entry 05</span>
                 <span class="entry-date">Jun 2026 — Present </span>
@@ -248,9 +253,22 @@
         <section id="writing" class="tab-content">
             <h2 class="section-title">Reading Ledger</h2>
 
+            <!-- Filter index: year chips are generated from the cards' data-year attributes -->
+            <div class="ledger-filters" id="ledger-filters" aria-label="filter reviews">
+                <button class="filter-chip active" data-filter="all">all</button>
+                <button class="filter-chip" data-filter="rating:5">★★★★★</button>
+                <button class="filter-chip" data-filter="rating:4">★★★★</button>
+            </div>
+
+            <!-- Currently-reading shelf, populated from books.json (stays hidden without it) -->
+            <div class="gr-shelf" id="gr-shelf" hidden>
+                <span class="lounge-label">on the nightstand — synced from goodreads</span>
+                <div class="gr-shelf-row" id="gr-shelf-row"></div>
+            </div>
+
             <div class="bento-thought-grid">
 
-                <div class="thought-card bento-wide note-dashed">
+                <div class="thought-card bento-wide note-dashed" data-rating="5" data-year="2026">
                     <div class="thought-header">
                         <span class="entry-date">Feb 2026</span>
                         <span class="book-rating">★★★★★</span>
@@ -278,7 +296,7 @@
                     </div>
                 </div>
 
-                <div class="thought-card bento-tall note-solid">
+                <div class="thought-card bento-tall note-solid" data-rating="4" data-year="2026">
                     <div class="thought-header">
                         <span class="entry-date">March 2026</span>
                         <span class="book-rating">★★★★☆</span>
@@ -311,7 +329,7 @@
                     </div>
                 </div>
 
-                <div class="thought-card bento-wide note-thick">
+                <div class="thought-card bento-wide note-thick" data-rating="5" data-year="2025">
                     <div class="thought-header">
                         <span class="entry-date">Dec 2025</span>
                         <span class="book-rating">★★★★★</span>
@@ -319,7 +337,7 @@
                     <h3>I Who Have Never Known Men — Jacqueline Harpman</h3>
 
                     <div class="thought-content">
-                        <!-- <img src="icon.png" class="thought-inline-img" alt="Visual Fragment"> -->
+                        <img src="icon.png" class="thought-inline-img" alt="Visual Fragment">
 
                         <p class="spoiler-note">** spoiler alert **</p>
 
@@ -352,6 +370,13 @@
                 </div>
 
             </div>
+
+            <!-- Rated-on-Goodreads books that don't have a full review yet
+                 (populated from books.json; hidden without it) -->
+            <div class="gr-log" id="gr-log" hidden>
+                <h2 class="section-title">Logged, Not Yet Reviewed</h2>
+                <div id="gr-log-rows"></div>
+            </div>
         </section>
 
     </main>
@@ -361,12 +386,11 @@
         <p class="colophon-line">this notebook belongs to</p>
         <p class="colophon-name">Victoria Zhang</p>
         <div class="colophon-links">
-            <!-- TODO: confirm these are the links/addresses you want public -->
             <a href="mailto:vz8@illinois.edu">Email</a>
             <span class="colophon-sep">·</span>
             <a href="https://github.com/victoriiz" target="_blank">GitHub</a>
-            <span class="colophon-sep">·</span>
-            <!-- <a href="https://victoriiz.substack.com" target="_blank">Substack</a> -->
+            <!-- <span class="colophon-sep">·</span>
+            <a href="https://victoriiz.substack.com" target="_blank">Substack</a> -->
         </div>
         <p class="colophon-note">set in EB Garamond &amp; Inter · handmade with vanilla HTML, CSS &amp; JS</p>
     </footer>
